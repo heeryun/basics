@@ -11,8 +11,8 @@ import random
 
 number = random.randint(1, 10)
 print("I'm thinking of a number between 0 and 10. What it is?")
-# user_number = input("Enter number: ")
-# number_of_guesses = 0
+
+number_of_guesses = 3
 
 while True:
     user_number = input("Enter number: ")
@@ -34,4 +34,10 @@ while True:
     elif int(user_number) == number:
         print("10 years later...You got it!")
         break
-    print("guess again")
+    print("Guess again!")
+    if user_number != number:
+        print(f'You have {number_of_guesses} tries left.')
+        number_of_guesses -= 1
+    if number_of_guesses == -1:
+        print(f"You're taking too long! The number was: {number}")
+        break
